@@ -21,7 +21,16 @@ function App() {
 
   return (
     <>
-      <div>Test</div>
+      <div className="container">
+        <div className="input-container">
+          <input type="text" 
+          className="cityInput" 
+          placeholder="Search any city"/>
+          <div className="search-icon">
+            <img src={searchIcon} alt="Search"/>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
