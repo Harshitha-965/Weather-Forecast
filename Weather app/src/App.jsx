@@ -19,7 +19,7 @@ import windIcon from "./assets/windicon.jpeg"
 const WeatherDetails=({icon,temp,city,country,lat,long})=>{
   return(<>
     <div className="image">
-      <img src={icon} alt="cloudy"/>
+      <img src={icon} alt="image"/>
     </div>
     <div className="temp">
     {temp}&deg;C
