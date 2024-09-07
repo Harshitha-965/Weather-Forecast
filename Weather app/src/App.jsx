@@ -3,21 +3,19 @@ import './App.css';
 import PropTypes from "prop-types";
 
 /*Import images*/
-import cloudyIcon from "./assets/cloudy.jpeg"
-import frostyIcon from "./assets/frosty.jpeg"
-import heavy_rainIcon from "./assets/heavy_rain.jpeg"
+import brokenCloudIcon from "./assets/brokenclouds.jpeg"
+import clearIcon from "./assets/clear.jpeg"
+import fewCloudsIcon from "./assets/fewclouds.jpeg"
 import humidityIcon from "./assets/humidityicon.jpeg"
-import mistyIcon from "./assets/misty.jpeg"
-import overcastIcon from "./assets/overcast.jpeg"
-import partly_cloudyIcon from "./assets/partly_cloudy.jpeg"
-import rainyIcon from "./assets/rainy.jpeg"
+import rainIcon from "./assets/rain.jpeg"
+import scatteredIcon from "./assets/scattered.jpeg"
+import snowIcon from "./assets/snow.jpeg"
 import searchIcon from "./assets/search.jpeg"
 import showersIcon from "./assets/showers.jpeg"
-import sunnyIcon from "./assets/sunny.jpeg"
 import thunderstormIcon from "./assets/thunderstorm.jpeg"
 import windIcon from "./assets/windicon.jpeg"
 
-const WeatherDetails=({icon,temp,city,country,lat,long,humidity,wind})=>{
+const WeatherDetails=({icon,temp,city,country,lat,log,humidity,wind})=>{
   return(<>
     <div className="image">
       <img src={icon} alt="image"/>
@@ -38,7 +36,7 @@ const WeatherDetails=({icon,temp,city,country,lat,long,humidity,wind})=>{
       </div>
       <div>
         <span className="long">longitude</span>
-        <span>{long}</span>
+        <span>{log}</span>
       </div>
     </div>
     <div className="data-container">
@@ -75,32 +73,34 @@ WeatherDetails.propTypes = {
 function App() {
   let api_key="594b9aae4f0d18963145b6c4e8c80979";
   const [text,setText]=useState("Chennai");
-  const [icon,setIcon]=useState(cloudyIcon);
+  const [icon,setIcon]=useState(clearIcon);
   const [temp,setTemp]=useState(0);
   const [city,setCity]=useState("Chennai");
   const [country,setCountry]=useState("IN");
   const [lat,setLat]=useState(0);
-  const [long,setLong]=useState(0);
+  const [log,setLog]=useState(0);
   const [humidity,setHumidity]=useState(0);
   const [wind,setWind]=useState(0);
   const [cityNotFound,setCityNotFound]=useState(false);
   const [loading,setLoading]=useState(false);
   const [error, setError] = useState(null);
   const weatherIconMap={
-    "01d":cloudyIcon,
-    "01n":cloudyIcon,
-    "02d":sunnyIcon,
-    "02n":sunnyIcon,
-    "03d":thunderstormIcon,
-    "03n":thunderstormIcon,
-    "04d":showersIcon,
-    "04n":showersIcon,
-    "09d":rainyIcon,
-    "09n":rainyIcon,
-    "10d":rainyIcon,
-    "10n":rainyIcon,
-    "13d":mistyIcon,
-    "13n":mistyIcon,
+    "01d":clearIcon,
+    "01n":clearIcon,
+    "02d":fewCloudsIcon,
+    "02n":fewCloudsIcon,
+    "03d":scatteredIcon,
+    "03n":scatteredIcon,
+    "04d":brokenCloudIcon,
+    "04n":brokenCloudIcon,
+    "09d":showersIcon,
+    "09n":showersIcon,
+    "10d":rainIcon,
+    "10n":rainIcon,
+    "11d":thunderstormIcon,
+    "11n":thunderstormIcon,
+    "13d":snowIcon,
+    "13n":snowIcon,
   };
 
   const search= async()=>{
@@ -122,9 +122,9 @@ function App() {
       setCity(data.name);
       setCountry(data.sys.country);
       setLat(data.coord.lat);
-      setLong(data.coord.lon);
+      setLog(data.coord.lon);
       const weatherIconCode=data.weather[0].icon;
-      setIcon(weatherIconMap[weatherIconCode] || cloudyIcon);
+      setIcon(weatherIconMap[weatherIconCode] || clearIcon);
       setCityNotFound(false);
     }
     catch(error){
@@ -173,7 +173,7 @@ function App() {
         city={city}
         country={country}
         lat={lat}
-        long={long}
+        log={log}
         humidity={humidity}
         wind={wind} />}
         <p className="copyright">
