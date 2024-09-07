@@ -144,3 +144,12 @@ body{
 .copyright span{
   color:#333;
 }
+.city-not-found,
+.loading-message,
+.error-message {
+  margin-top: 10px;
+  color: #888;
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+}
