@@ -47,7 +47,7 @@ body{
 }
 
 .search-icon img{
-  object_fit:contain;
+  object-fit:contain;
   margin-top:5px;
   margin-right:10px;
   width:20px;
@@ -58,7 +58,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center; 
-  height: 25vh;
+  height: 30vh;
 }
 
 .image img{
