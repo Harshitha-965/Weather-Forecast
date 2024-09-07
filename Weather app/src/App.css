@@ -3,10 +3,11 @@
 *{
   font-family:"Roboto Condensed", sans-serif;
 }
-@media screen (max-width:500px){
-  body,html{
-    height:80vh;
-    overflow:hidden;
+@media(max-width:500px){
+  .container{
+    max-width:70%;
+    height:83vh;
+    margin-left: 50px;
   }
 }
 body{
