@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import './App.css'
+ import { useState, useEffect } from 'react'
+import './App.css';
+import PropTypes from "prop-types";
 
 /*Import images*/
 import cloudyIcon from "./assets/cloudy.jpeg"
@@ -59,7 +60,17 @@ const WeatherDetails=({icon,temp,city,country,lat,long,humidity,wind})=>{
     </>
     );
 };
+WeatherDetails.propTypes = {
+  icon: PropTypes.string.isRequired,
+  temp: PropTypes.number.isRequired,
+  city: PropTypes.string.isRequired,
+  country: PropTypes.string.isRequired,
+  humidity: PropTypes.number.isRequired,
+  wind: PropTypes.number.isRequired,
+  lat: PropTypes.number.isRequired,
+  log: PropTypes.number.isRequired,
 
+};
 
 function App() {
   let api_key="594b9aae4f0d18963145b6c4e8c80979";
@@ -74,6 +85,7 @@ function App() {
   const [wind,setWind]=useState(0);
   const [cityNotFound,setCityNotFound]=useState(false);
   const [loading,setLoading]=useState(false);
+  const [error, setError] = useState(null);
   const weatherIconMap={
     "01d":cloudyIcon,
     "01n":cloudyIcon,
@@ -117,6 +129,7 @@ function App() {
     }
     catch(error){
       console.error("An error occured:",error.message);
+      setError("An error occured while fetching weather data.");
     }
     finally{
       setLoading(false);
@@ -134,7 +147,9 @@ function App() {
     }
 
   };
-  
+  useEffect(function (){
+    search();
+  }, []);
   
 
 
@@ -149,14 +164,18 @@ function App() {
             <img src={searchIcon} alt="Search"/>
           </div>
         </div>
-        <WeatherDetails icon={icon} 
+       
+        {loading && <div className="Loading-message">Loading...</div>}
+        {error && <div className="error-message">{error}</div>}
+        {cityNotFound && <div className="city-not-found">City not found</div>}
+        {!loading && !cityNotFound && <WeatherDetails icon={icon} 
         temp={temp} 
         city={city}
         country={country}
         lat={lat}
         long={long}
         humidity={humidity}
-        wind={wind} />
+        wind={wind} />}
         <p className="copyright">
           Designed By <span>DDH</span>
         </p>
