@@ -17,7 +17,7 @@ body{
 
 .container{
   width:350px;
-  padding:20px;
+  padding:25px;
   background-color: white;
   border-radius:10px;
   box-shadow:0 4px 10px rgba(0, 0, 0, 0.1);
@@ -29,11 +29,12 @@ body{
   align-items:center;
   border:2px solid rgb(12, 241, 245);
   border-radius:5px;
+  overflow:hidden;
 }
 
 .cityInput{
   flex:1;
-  height:40px;
+  height:30px;
   border:none;
   font-size:20px;
   outline:none;
@@ -47,7 +48,6 @@ body{
 }
 
 .search-icon img{
-  object-fit:contain;
   margin-top:5px;
   margin-right:10px;
   width:20px;
@@ -55,15 +55,15 @@ body{
 }
 
 .image{
-  display: flex;
-  align-items: center;
-  justify-content: center; 
-  height: 30vh;
+  text-align:center;
+  height:150px;
+  margin-bottom:10px; 
+  margin-top:10px;
 }
 
 .image img{
-  max-width: 100%;
-  height: auto;
+  width:180px;
+  height:160px;
 }
 
 .temp,
@@ -112,10 +112,35 @@ body{
 .cord div span{
   font-size:16px;
 }
-
+.humidity-percent,
+.wind-percent,
 .cord div span:nth-child(2){
-  font-size:20px;
+  font-size:25px;
   font-weight:bold;
   color:cadetblue;
   padding-top:5px;
+}
+.data-container{
+ display:flex;
+ justify-content:space-between;
+}
+  
+.element{
+  text-align: center; 
+}
+.icon{
+  height:60px;
+  width:60px;
+}
+.text{
+  font-size:16px;
+  color:#000000;
+}
+.copyright{
+  text-align:center;
+  font-size:14px;
+  color:#333;
+}
+.copyright span{
+  color:#333;
 }
