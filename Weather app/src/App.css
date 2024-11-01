@@ -5,17 +5,18 @@
 }
 @media(max-width:500px){
   .container{
-    max-width:70%;
-    height:85vh;
-    margin-left: 75px;
-    
+    max-width:60%;
+    height:70vh;
+    margin-left: 105px;
+    background-size:cover;
   }
 }
 body{
   margin:0;
   padding:0;
-  background-color:#6dade5;
-  width:100vw;
+  background-image:url(https://www.cisa.gov/sites/default/files/styles/hero_large/public/2023-02/hero_climatechange.jpg?h=e0d9a4bb&itok=SYxQ5jCb);
+  background-repeat: no-repeat;
+  background-size:cover;
   height:100vh;
   display:flex;
   justify-content:center;
@@ -117,7 +118,7 @@ body{
 }
 
 .cord div span{
-  font-size:16px;
+  font-size:20px;
 }
 .humidity-percent,
 .wind-percent,
