@@ -7,13 +7,13 @@ An interactive weather forecast web application built using React and Vite. This
 
 ✨ Features
 
-🌍 Search weather by city name
-🌡️ Displays temperature in Celsius
-💧 Shows humidity levels
-🌬️ Displays wind speed
-📍 Shows latitude and longitude
-❌ Handles invalid city input ("City not found")
-⚡ Fast and responsive UI
+-🌍 Search weather by city name
+-🌡️ Displays temperature in Celsius
+-💧 Shows humidity levels
+-🌬️ Displays wind speed
+-📍 Shows latitude and longitude
+-❌ Handles invalid city input ("City not found")
+-⚡ Fast and responsive UI
 
 🛠️ Technologies Used
 
